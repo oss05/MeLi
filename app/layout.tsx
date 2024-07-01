@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "./common-components/Footer";
+import Header from "./common-components/Header";
+import { Toaster } from "react-hot-toast";
+import { ProductProvider } from "./context/ProductProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ProductProvider>
+          <Toaster />
+          <Header />
+          <main className="text-font-primary body-font min-h-[calc(100vh-184px)]">
+            <div className="container px-5 py-16 mx-auto">{children}</div>
+          </main>
+          <Footer />
+        </ProductProvider>
+      </body>
     </html>
   );
 }
