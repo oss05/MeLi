@@ -24,7 +24,7 @@ Este proyecto está construido con con **Next.js 14**, que utiliza **Tailwind CS
     yarn run dev
 
     # Para correr el testing usar
-    yarn run dev
+    yarn run test
    ```
 
 ## Consideraciones Adicionales
