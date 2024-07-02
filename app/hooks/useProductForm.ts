@@ -30,18 +30,14 @@ const useProductForm = ({ initialProduct }: UseProductFormProps = {}) => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
 
-      // setProduct((prevProduct) => ({
-      //   ...prevProduct,
-      //   [name]: name === "price" ? Number(value) : value,
-      //   rating:
-      //     name === "rate" || name === "count"
-      //       ? { ...prevProduct.rating, [name]: Number(value) }
-      //       : prevProduct.rating,
-      // }));
-      setProduct({
-        ...product,
-        [name]: value,
-      });
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        [name]: name === "price" ? Number(value) : value,
+        rating:
+          name === "rate" || name === "count"
+            ? { ...prevProduct.rating, [name]: Number(value) }
+            : prevProduct.rating,
+      }));
     },
     []
   );

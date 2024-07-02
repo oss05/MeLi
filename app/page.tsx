@@ -119,27 +119,38 @@ export default function Home() {
           </Button>
         </div>
       </article>
-      <ProductsGrid products={currentItems} onClick={handleOpenProductDetail} />
-      <nav className="flex justify-center mt-8">
-        <ul className="flex list-none">
-          {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-            (number) => (
-              <li key={number} className="mx-1">
-                <button
-                  onClick={() => paginate(number)}
-                  className={`px-4 py-2 border rounded ${
-                    currentPage === number
-                      ? "border-primary bg-secondary text-primary"
-                      : "border-gray-300 bg-white "
-                  }`}
-                >
-                  {number}
-                </button>
-              </li>
-            )
-          )}
-        </ul>
-      </nav>
+      {products.length > 0 ? (
+        <>
+          <ProductsGrid
+            products={currentItems}
+            onClick={handleOpenProductDetail}
+          />
+          <nav className="flex justify-center mt-8">
+            <ul className="flex list-none">
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                (number) => (
+                  <li key={number} className="mx-1">
+                    <button
+                      onClick={() => paginate(number)}
+                      className={`px-4 py-2 border rounded ${
+                        currentPage === number
+                          ? "border-primary bg-secondary text-primary"
+                          : "border-gray-300 bg-white "
+                      }`}
+                    >
+                      {number}
+                    </button>
+                  </li>
+                )
+              )}
+            </ul>
+          </nav>
+        </>
+      ) : (
+        <div className="flex justify-center items-center h-[40vh]">
+          <p>No tienes productos registrados aún.</p>
+        </div>
+      )}
     </section>
   );
 }
