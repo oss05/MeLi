@@ -6,6 +6,14 @@ export async function getProducts() {
   return data;
 }
 
+export async function getProduct(productId: string | string[]) {
+  const response = await fetch(
+    `https://fakestoreapi.com/products/${productId}`
+  );
+  const data = await response.json();
+  return data;
+}
+
 export async function createProduct(payload: Omit<Product, "id">) {
   const response = await fetch("https://fakestoreapi.com/products", {
     method: "POST",
@@ -24,7 +32,7 @@ export async function updateProduct(payload: Product) {
   return data;
 }
 
-export async function deleteProduct(productId: string) {
+export async function deleteProduct(productId: string | string[]) {
   const response = await fetch(
     `https://fakestoreapi.com/products/${productId}`,
     {

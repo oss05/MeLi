@@ -5,6 +5,7 @@ import { Product } from "../product/product.interface";
 
 interface ProductState {
   products: Product[];
+  product: Product | null;
   categories: string[];
   isInitialized: boolean;
 }
@@ -12,6 +13,7 @@ interface ProductState {
 interface ProductAction {
   type:
     | "SET_PRODUCTS"
+    | "SET_PRODUCT"
     | "SET_CATEGORIES"
     | "ADD_PRODUCT"
     | "UPDATE_PRODUCT"
@@ -27,6 +29,8 @@ const productReducer = (
   switch (action.type) {
     case "SET_PRODUCTS":
       return { ...state, products: action.payload };
+    case "SET_PRODUCT":
+      return { ...state, product: action.payload };
     case "SET_CATEGORIES":
       return { ...state, categories: action.payload };
     case "ADD_PRODUCT":
@@ -56,7 +60,7 @@ const ProductContext = createContext<{
   state: ProductState;
   dispatch: React.Dispatch<ProductAction>;
 }>({
-  state: { products: [], categories: [], isInitialized: false },
+  state: { products: [], product: null, categories: [], isInitialized: false },
   dispatch: () => null,
 });
 
@@ -65,11 +69,10 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [state, dispatch] = useReducer(productReducer, {
     products: [],
+    product: null,
     categories: [],
     isInitialized: false,
   });
-
-  console.log(state);
 
   useEffect(() => {
     const storedProducts = localStorage.getItem("products");

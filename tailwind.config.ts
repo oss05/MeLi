@@ -17,7 +17,7 @@ const config: Config = {
         primary: "#009ee3",
         secondary: "#e4f0f8",
         font: {
-          primary: "gray-600",
+          primary: "#3b3c3f",
         },
       },
     },

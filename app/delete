@@ -1,13 +1,12 @@
-
-//usar next link y next image
-//uso de use memo para filtrar cuando agregue los nuevos elementos
-//paginar resultados
-//responsive
 //testing
 
-Poner en el readme:
-
 DOne:
+//agregar boton back
+//paginar resultados
+//uso de use memo para filtrar cuando agregue los nuevos elementos
+//responsive
+//limpiar warnings
+//usar next link y next image
 //agregar tema
 //agregar layout
 //cambiar common components y components
@@ -18,11 +17,3 @@ Explicar:
 //usar react hook form y schemas
 //usar axios o rquery
 //poner en barrel file
-const filteredProducts = useMemo(() => {
-if (selectedCategory) {
-return products.filter(
-(product) => product.category === selectedCategory
-);
-}
-return products;
-}, [products, selectedCategory]);

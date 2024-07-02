@@ -24,8 +24,8 @@ export default function RootLayout({
         <ProductProvider>
           <Toaster />
           <Header />
-          <main className="text-font-primary body-font min-h-[calc(100vh-184px)]">
-            <div className="container px-5 py-16 mx-auto">{children}</div>
+          <main className="text-font-primary min-h-[calc(100vh-184px)] container px-5 py-8 lg:py-12 mx-auto">
+            {children}
           </main>
           <Footer />
         </ProductProvider>
