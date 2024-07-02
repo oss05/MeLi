@@ -23,7 +23,7 @@ const ProductsGrid = ({ products, onClick }: ProductsGridProps) => {
               />
             </a>
             <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 capitalize">
                 {product.category}
               </h3>
               <h2 className="text-gray-900 title-font text-lg font-medium truncate">
